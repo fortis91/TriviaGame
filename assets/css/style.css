@@ -1,0 +1,83 @@
+body {
+    background-image: url('../images/cork_1.png');
+    background-color: #8D99AE;
+}
+section {
+  padding: auto;
+  margin: auto;
+  width: 960px;
+  margin-top: 50px;
+  align-content: center;
+  /* text-align: center; */
+  float: center;
+}
+/* .answerchoice {
+	border: 1px solid black;
+  border-radius: 5%;
+	width: 40%;
+	color: black;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 20px;
+  background-color: white;
+
+} */
+
+/* img {
+  max-height: 250px;
+  width: auto;
+} */
+
+/* #answerblock {
+  text-align: center;
+
+} */
+
+/* #questionblock {
+  text-align: center;
+  font-weight: bold;
+} */
+
+#reset {
+  visibility: visible;
+}
+
+/* body {
+  background-image: url("../images/foodbg.jpg");
+  background-size: cover;
+  font-family: 'Karla', sans-serif;
+} */
+
+/* h1 {
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  padding: 20px;
+  font-size: 45px;
+} */
+
+/* p {
+  margin: 10px;
+  font-weight: bold;
+  color: red;
+  font-size: 20px;
+} */
+
+/* h2, h4 {
+  margin: 30px;
+  font-weight: bold;
+} */
+
+/* .wrapper {
+  margin: 10px auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid #403fd3;
+  height: 500px;
+  width: 60%;
+  text-align: center;
+} */
+
+/* .btn {
+  position: relative;
+  bottom: -150px;
+} */

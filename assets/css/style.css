@@ -11,6 +11,26 @@ section {
   /* text-align: center; */
   float: center;
 }
+
+#question ,
+#answer ,
+#timeleft {
+  padding: 10px;
+}
+
+.btn {
+    /* background-color: #EF233C; */
+    color: #fff;
+    text-align: center;
+    /* padding: 5px; */
+    width: 70px;
+    height: 40px;
+    /* margin: 0px 0px 5px 0px; */
+}
+                /* <div id="question"></div>
+                <div id="answer"></div>
+                <div id="timeleft"></div> */
+
 /* .answerchoice {
 	border: 1px solid black;
   border-radius: 5%;

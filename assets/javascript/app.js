@@ -8,7 +8,7 @@ $(document).ready(function () {
     var correctCount = 0;
     var incorrectCount = 0;
 
-    var timer = 10;
+    var timer = 11;
     var answer = "";
     var question;
     var alreadyAsked = [];
@@ -47,8 +47,8 @@ $(document).ready(function () {
             }
         },
         decrement: function () {
-            $("#timeleft").html("Time remaining: " + timer);
             timer--;
+            $("#timeleft").html("Time remaining: " + timer);
             if (timer <= 5) {
                 background.play();
             }
@@ -110,7 +110,7 @@ $(document).ready(function () {
         console.log("show answer");
         setTimeout(function () {
             $("#answer").empty();
-            timer = 10;
+            timer = 11;
             if (moreQuestions) {
                 showQuestion();
                 timerO.start();

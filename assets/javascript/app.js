@@ -4,14 +4,14 @@ $(document).ready(function () {
 
     const decrementRate = 1000;
     const timeoutRate = 3000;
+
     var correctCount = 0;
-    var wrongCount = 0;
-    var unanswerCount = 0;
+    var incorrectCount = 0;
+    var noAnswerCount = 0;
+
     var timer = 5;
-    var userGuess = "";
-    var qCount = options.length;
-    var pick;
-    var index;
+    var answer = "";
+    var question;
     var alreadyAsked = [];
     var moreQuestions = true;
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
 
     //----------------------OOP--------------------------//
-    //todo convert to class - https://medium.com/javascript-scene/javascript-factory-functions-vs-constructor-functions-vs-classes-2f22ceddf33e
+    //todo convert to class
     var timerO = {
         running: false,
         intervalId: 0,
@@ -56,9 +56,9 @@ $(document).ready(function () {
             $("#timeleft").html("Time remaining: " + timer);
             timer--;
             if (timer === 0) {
-                unanswerCount++;
+                noAnswerCount++;
                 timerO.stop();
-                $("#answer").html("<p>Time is up! The correct answer is: " + pick.choice[pick.answer] + "</p>");
+                $("#answer").html("<p>The correct answer is: " + question.choice[question.answer] + "</p>");
                 showAnswer();
             }
         },
@@ -72,38 +72,36 @@ $(document).ready(function () {
 
 
     var showQuestion = function () {
-        console.log("show question/more questions: "+moreQuestions);
-        //pick = options[generateRandomNumnber(options.length)];
-        pick = getNextQuestion();
-        // console.log(pick.question);
-        $("#question").html("<h3>" + pick.question + "</h3>");
-        for (var i = 0; i < pick.choice.length; i++) {
+        console.log("show question");
+        question = getNextQuestion();
+        $("#question").html("<h3>" + question.question + "</h3>");
+        for (var i = 0; i < question.choice.length; i++) {
             var newDiv = $('<div class="form-check">');
             var radioButton = $('<input class="form-check-input" type="radio" name="radio" id="' + i + '" value="' + i + '" />');
-            var radioLabel = $('<label class="form-check-label" for="' + i + '">').text(pick.choice[i]);
+            var radioLabel = $('<label class="form-check-label" for="' + i + '">').text(question.choice[i]);
             newDiv.append(radioButton, radioLabel);
             $('#answer').append(newDiv);
         }
 
         $(".form-check-input").on("click", function () {
             console.log("click answer: ");
-            userGuess = parseInt(this.value);
-            checkAnswer(userGuess, pick);
+            answer = parseInt(this.value);
+            checkAnswer(answer, question);
 
         })
     }
 
 
-    function checkAnswer(userGuess, pick) {
+    function checkAnswer(answer, question) {
         timerO.stop();
-        if (userGuess === pick.answer) {
+        if (answer === question.answer) {
             correctCount++;
             $("#answer").html("<p>Correct!</p>");
         } else {
-            wrongCount++;
-            $("#answer").html("<p>Wrong! The correct answer is: " + pick.choice[pick.answer] + "</p>");
+            incorrectCount++;
+            $("#answer").html("<p>The correct answer is: " + question.choice[question.answer] + "</p>");
         }
-        userGuess = ""
+        answer = ""
         showAnswer();
     }
 
@@ -111,16 +109,15 @@ $(document).ready(function () {
     var showAnswer = function () {
         console.log("show answer");
         // $("#answerblock").append("<img src=" + pick.photo + ">");
-        // options.splice(index, 1);
         setTimeout(function () {
             $("#answer").empty();
             timer = 5;
-            // if ((wrongCount + correctCount + unanswerCount) === qCount) {
-            if (!moreQuestions) {
-                showStats();
-            } else {
-                timerO.start();
+            if (moreQuestions) {
                 showQuestion();
+                timerO.start();
+            }
+            else {
+                showStats();
             }
         }, timeoutRate);
     }
@@ -130,12 +127,12 @@ $(document).ready(function () {
         $("#question").empty();
         $("#question").html("<h4>Game Over </h4>");
         $("#answer").append("<h5> Correct: " + correctCount + "</h5>");
-        $("#answer").append("<h5> Incorrect: " + wrongCount + "</h5>");
-        $("#answer").append("<h5> Unanswered: " + unanswerCount + "</h5>");
+        $("#answer").append("<h5> Incorrect: " + incorrectCount + "</h5>");
+        $("#answer").append("<h5> Unanswered: " + noAnswerCount + "</h5>");
         $("#reset").show();
         correctCount = 0;
-        wrongCount = 0;
-        unanswerCount = 0;
+        incorrectCount = 0;
+        noAnswerCount = 0;
     }
 
 

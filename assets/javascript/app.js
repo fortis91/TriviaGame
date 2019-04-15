@@ -7,9 +7,8 @@ $(document).ready(function () {
 
     var correctCount = 0;
     var incorrectCount = 0;
-    var noAnswerCount = 0;
 
-    var timer = 5;
+    var timer = 10;
     var answer = "";
     var question;
     var alreadyAsked = [];
@@ -20,7 +19,6 @@ $(document).ready(function () {
     var end = document.createElement("audio");
     end.setAttribute("src", "assets/sounds/end.mp3");
 
-    //------------------------------------------------------------------------//    
     var init = function () {
         console.clear();
         console.log("initialize");
@@ -28,7 +26,6 @@ $(document).ready(function () {
         showQuestion();
         timerO.start();
     }
-    //------------------------------------------------------------------------//    
 
 
     $("#start").on("click", function () {
@@ -39,8 +36,6 @@ $(document).ready(function () {
     })
 
 
-    //----------------------OOP--------------------------//
-    //todo convert to class
     var timerO = {
         running: false,
         intervalId: 0,
@@ -52,11 +47,14 @@ $(document).ready(function () {
             }
         },
         decrement: function () {
-            // $("#timeleft").html("<h3>Time remaining: " + timer + "</h3>");
             $("#timeleft").html("Time remaining: " + timer);
             timer--;
+            if (timer <= 5) {
+                background.play();
+            }
             if (timer === 0) {
-                noAnswerCount++;
+                end.play();
+                incorrectCount++;
                 timerO.stop();
                 $("#answer").html("<p>The correct answer is: " + question.choice[question.answer] + "</p>");
                 showAnswer();
@@ -68,7 +66,6 @@ $(document).ready(function () {
             clearInterval(this.intervalId);
         }
     }
-    //----------------------OOP--------------------------//    
 
 
     var showQuestion = function () {
@@ -96,7 +93,10 @@ $(document).ready(function () {
         timerO.stop();
         if (answer === question.answer) {
             correctCount++;
+            var winner = (images[generateRandomNumnber(images.length)]);
+            console.log(winner);
             $("#answer").html("<p>Correct!</p>");
+            $("#answer").append("<img src=" + winner + ">");
         } else {
             incorrectCount++;
             $("#answer").html("<p>The correct answer is: " + question.choice[question.answer] + "</p>");
@@ -108,10 +108,9 @@ $(document).ready(function () {
 
     var showAnswer = function () {
         console.log("show answer");
-        // $("#answerblock").append("<img src=" + pick.photo + ">");
         setTimeout(function () {
             $("#answer").empty();
-            timer = 5;
+            timer = 10;
             if (moreQuestions) {
                 showQuestion();
                 timerO.start();
@@ -128,7 +127,6 @@ $(document).ready(function () {
         $("#question").html("<h4>Game Over </h4>");
         $("#answer").append("<h5> Correct: " + correctCount + "</h5>");
         $("#answer").append("<h5> Incorrect: " + incorrectCount + "</h5>");
-        $("#answer").append("<h5> Unanswered: " + noAnswerCount + "</h5>");
         $("#reset").show();
         correctCount = 0;
         incorrectCount = 0;
@@ -157,20 +155,20 @@ $(document).ready(function () {
 
     var getNextQuestion = function () {
         console.log("more questions: " + moreQuestions);
-        var randomNumber = generateRandomNumnber(options.length);
-        if (alreadyAsked.length === options.length) {
+        var randomNumber = generateRandomNumnber(questions.length);
+        if (alreadyAsked.length === questions.length) {
             console.log("asked filled");
             alreadyAsked = [];
             moreQuestions = false;
             return;
         }
-        var question = options[randomNumber];
+        var question = questions[randomNumber];
         if (moreQuestions && alreadyAsked.indexOf(question) !== -1) {
             console.log("recursive: "+randomNumber);
             return getNextQuestion();
         }
         alreadyAsked.push(question);
-        if (alreadyAsked.length === options.length) {
+        if (alreadyAsked.length === questions.length) {
             moreQuestions = false;
         }
 

@@ -13,6 +13,11 @@ var questions = [{
     question: "Which country won the 2018 World Cup",
     choice: ["Portugal", "England", "France", "Jamaica"],
     answer: 2,
+    },
+{
+    question: "Pele represent what country in the World Cup",
+    choice: ["Portugal", "England", "France", "Brazil"],
+    answer: 3,
 },
 {
         question: "Which country has won the most World Cup",

@@ -72,7 +72,7 @@ $(document).ready(function () {
     var showQuestion = function () {
         console.log("show question");
         question = getNextQuestion();
-        $("#question").html("<h3>" + question.question + "</h3>");
+        $("#question").html("<h4>" + question.question + "</h4>");
         for (var i = 0; i < question.choice.length; i++) {
             var newDiv = $('<div class="form-check">');
             var radioButton = $('<input class="form-check-input" type="radio" name="radio" id="' + i + '" value="' + i + '" />');

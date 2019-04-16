@@ -1,22 +1,24 @@
 
 var questions = [{
-    question: "What is the capital of Illinois",
-    choice: ["Springfield", "Chicago", "Blue Island", "Harvey"],
+    question: "Where was the 2018 World Cup?",
+    choice: ["Russia", "France", "England", "Spain"],
     answer: 0,
-    photo: "assets/images/herring.jpg"
 },
 {
-    question: "What is capital of Jamaica",
-    choice: ["Bronx", "Kingston", "Spanish Town", "St Ann"],
+    question: "Name the player pictured to the right",
+    choice: ["Lionel Messi", "Cristiano Ronaldo", "Kylian Mbappé", "Nicolas Pépé"],
     answer: 1,
-    photo: "assets/images/lemon.gif"
 },
 {
-    question: "What is the capital of England?",
-    choice: ["Bristol", "Livepool", "London", "Jamaica"],
+    question: "Which country won the 2018 World Cup",
+    choice: ["Portugal", "England", "France", "Jamaica"],
     answer: 2,
-    photo: "assets/images/guava.gif"
-}
+},
+{
+        question: "Which country has won the most World Cup",
+        choice: ["Portugal", "USA", "France", "Brazil"],
+        answer: 3,
+    }
 ];
 
 var images = [

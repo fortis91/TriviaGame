@@ -135,7 +135,7 @@ $(document).ready(function () {
         noAnswerCount = 0;
         setTimeout(function () {
             playMusic();
-        }, timeoutRate);
+        }, 5);
     }
 
 
@@ -199,7 +199,7 @@ $(document).ready(function () {
     
     setTimeout(function () {
         playMusic();
-    }, timeoutRate);
+    }, 5);
 
     
     //init();

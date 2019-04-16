@@ -14,8 +14,10 @@ $(document).ready(function () {
     var alreadyAsked = [];
     var moreQuestions = true;
 
-    var background = document.createElement("audio");
-    background.setAttribute("src", "assets/sounds/beep-22.mp3");
+    // var background = document.createElement("audio");
+    // background.setAttribute("src", music[generateRandomNumnber(music.length)]);
+    var down = document.createElement("audio");
+    down.setAttribute("src", "assets/sounds/beep-22.mp3");
     var end = document.createElement("audio");
     end.setAttribute("src", "assets/sounds/end.mp3");
 
@@ -29,6 +31,8 @@ $(document).ready(function () {
 
 
     $("#start").on("click", function () {
+        initializeMusic();
+        //background.play();
         console.log("starting game");
         $("#start").hide();
         $('#instruction').hide();
@@ -51,7 +55,7 @@ $(document).ready(function () {
             timer--;
             $("#timeleft").html("Time remaining: " + timer);
             if (timer <= 5) {
-                background.play();
+                down.play();
             }
             if (timer === 0) {
                 end.play();
@@ -126,7 +130,7 @@ $(document).ready(function () {
     var showStats = function () {
         $("#question").empty();
         $("#question").html("<h4>Game Over </h4>");
-        $("#answer").append("Correct: " + correctCount +"<br>");
+        $("#answer").append("Correct  : " + correctCount +"<br>");
         $("#answer").append("Incorrect: " + incorrectCount);
         $("#reset").show();
         correctCount = 0;
@@ -151,6 +155,15 @@ $(document).ready(function () {
 
     var generateRandomNumnber = function (max) {
         return Math.floor(Math.random() * max);
+    }
+    
+    var initializeMusic = function () {
+        background = document.createElement("audio");
+        background.setAttribute("src", music[generateRandomNumnber(music.length)]);
+        var down = document.createElement("audio");
+        down.setAttribute("src", "assets/sounds/beep-22.mp3");
+        var end = document.createElement("audio");
+        end.setAttribute("src", "assets/sounds/end.mp3");
     }
 
 

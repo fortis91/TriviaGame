@@ -35,8 +35,8 @@ var images = [
 
 //Music: https://www.bensound.com
 var music = [
-    "assets/images/sounds/bensound-summer.mp3",
-    "bensound-littleidea.mp3",
-    "bensound-energy.mp3",
-    "bensound-clearday.mp3"
+    "assets/sounds/bensound-summer.mp3",
+    "assets/sounds/bensound-littleidea.mp3",
+    "assets/sounds/bensound-energy.mp3",
+    "assets/sounds/bensound-clearday.mp3"
 ]

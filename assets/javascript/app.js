@@ -14,12 +14,10 @@ $(document).ready(function () {
     var alreadyAsked = [];
     var moreQuestions = true;
 
-    // var background = document.createElement("audio");
-    // background.setAttribute("src", music[generateRandomNumnber(music.length)]);
-    var down = document.createElement("audio");
-    down.setAttribute("src", "assets/sounds/beep-22.mp3");
-    var end = document.createElement("audio");
-    end.setAttribute("src", "assets/sounds/end.mp3");
+    var background;
+    var down;
+    var end;
+    
 
     var init = function () {
         console.clear();
@@ -31,9 +29,8 @@ $(document).ready(function () {
 
 
     $("#start").on("click", function () {
-        initializeMusic();
-        //background.play();
         console.log("starting game");
+        background.pause();
         $("#start").hide();
         $('#instruction').hide();
         showQuestion();
@@ -136,12 +133,16 @@ $(document).ready(function () {
         correctCount = 0;
         incorrectCount = 0;
         noAnswerCount = 0;
+        setTimeout(function () {
+            playMusic();
+        }, timeoutRate);
     }
 
 
     $("#reset").on("click", function () {
         console.clear();
         console.log("reset game");
+        background.pause();
         $("#reset").hide();
         $("#answer").empty();
         $("#question").empty();
@@ -158,12 +159,11 @@ $(document).ready(function () {
     }
     
     var initializeMusic = function () {
-        background = document.createElement("audio");
-        background.setAttribute("src", music[generateRandomNumnber(music.length)]);
-        var down = document.createElement("audio");
+        console.log("initialize music");
+        down = document.createElement("audio");
         down.setAttribute("src", "assets/sounds/beep-22.mp3");
-        var end = document.createElement("audio");
-        end.setAttribute("src", "assets/sounds/end.mp3");
+        end = document.createElement("audio");
+        end.setAttribute("src", "assets/sounds/end.mp3");        
     }
 
 
@@ -189,7 +189,19 @@ $(document).ready(function () {
         return question;
     }
 
+    initializeMusic();
+    var playMusic = function () {
+        background = document.createElement("audio");
+        background.setAttribute("src", music[generateRandomNumnber(music.length)]);
+        console.log(background);
+        background.play();
+    }
+    
+    setTimeout(function () {
+        playMusic();
+    }, timeoutRate);
 
+    
     //init();
     //displayQuestion();
 })

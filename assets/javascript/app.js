@@ -8,7 +8,7 @@ $(document).ready(function () {
     var correctCount = 0;
     var incorrectCount = 0;
 
-    var timer = 11;
+    var timer = 31;
     var answer = "";
     var question;
     var alreadyAsked = [];
@@ -112,7 +112,7 @@ $(document).ready(function () {
         console.log("show answer");
         setTimeout(function () {
             $("#answer").empty();
-            timer = 11;
+            timer = 31;
             if (moreQuestions) {
                 showQuestion();
                 timerO.start();

@@ -31,6 +31,7 @@ $(document).ready(function () {
     $("#start").on("click", function () {
         console.log("starting game");
         $("#start").hide();
+        $('#instruction').hide();
         showQuestion();
         timerO.start();
     })
@@ -125,8 +126,8 @@ $(document).ready(function () {
     var showStats = function () {
         $("#question").empty();
         $("#question").html("<h4>Game Over </h4>");
-        $("#answer").append("<h5> Correct: " + correctCount + "</h5>");
-        $("#answer").append("<h5> Incorrect: " + incorrectCount + "</h5>");
+        $("#answer").append("Correct: " + correctCount +"<br>");
+        $("#answer").append("Incorrect: " + incorrectCount);
         $("#reset").show();
         correctCount = 0;
         incorrectCount = 0;

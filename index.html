@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="icon" type="image/png" href="assets/images/check-mark.png">
+    <link rel="icon" type="image/png" href="assets/images/soccer-icon-2.png">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -22,18 +22,23 @@
 
     <main>
         <section>
-
             <div class="jumbotron">
-                <h1 class="display-4">Trivia Game</h1>
-                <p class="lead">You will be given 10 seconds to answer a series of question. Click start to begin!</p>
+                <h1 class="display-4">World Cup Trivia</h1>
+                <!-- <p class="lead">You will be given 10 seconds to answer a series of question. Click start to begin!</p> -->
                 <hr class="my-4">
+                <div class="view">
+                    <div id="question"></div>
+                    <div id="answer"></div>
+                    <div id="timeleft"></div>
+                    <div id="instruction">
+                        <p class="lead">You will be given 10 seconds to answer a series of question. Click start to begin!</p>
+                        <button class="btn btn-success" id="start">Start</button>
+                                            <!-- <button class="btn btn-success" id="reset">Reset</button> -->
 
-                <div id="question"></div>
-                <div id="answer"></div>
-                <div id="timeleft"></div>
+                    </div>
+                    <button class="btn btn-success" id="reset">Reset</button>
 
-                <button class="btn btn-success" id="start">Start</button>
-                <button class="btn btn-success" id="reset">Reset</button>
+                </div>
             </div>
         </section>
     </main>

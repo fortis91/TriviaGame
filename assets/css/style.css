@@ -2,27 +2,20 @@ html {
   margin-top:  40px;
   margin-left: 10px;
   margin-right: 10px;
-
 }
 
 body {
-    background-image: url('../images/cork_1.png');
-    background-image: url('../images/worldcup-1.jpg');
-    background-image: url('../images/worldcup-2.jpg');
     background-image: url('../images/worldcup-3.jpg');
-            /* background-image: url('../images/worldcup-5.jpg'); */
 
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-repeat: inherit; */
 
     background-color: #8D99AE;
     color: #fff;
 
-        margin-top: 20px;
-        border-top: 50px;
+    margin-top: 20px;
+    border-top: 50px;
     padding: 20px;
-
 }
 
 section {
@@ -31,9 +24,7 @@ section {
   width: 960px;
   margin-top: 50px;
   align-content: center;
-  /* float: center; */
   margin: 20px auto 60px auto;
-
 }
 
 #question ,
@@ -52,7 +43,8 @@ section {
 .btn {
   border: 10px;
 }
-                
+
+/* todo: change button color on hover/focus */
 .btn-success {
     color: #fff;
     background-color: #8D99AE;

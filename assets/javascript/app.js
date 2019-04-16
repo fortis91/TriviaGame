@@ -68,7 +68,7 @@ $(document).ready(function () {
         }
     }
 
-
+//Todo: convert to OOP
     var showQuestion = function () {
         console.log("show question");
         question = getNextQuestion();

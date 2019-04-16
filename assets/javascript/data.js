@@ -32,3 +32,11 @@ var images = [
     "assets/images/winner-4.jpeg",
     "assets/images/winner-5.jpeg"
 ]
+
+//Music: https://www.bensound.com
+var music = [
+    "assets/images/sounds/bensound-summer.mp3",
+    "bensound-littleidea.mp3",
+    "bensound-energy.mp3",
+    "bensound-clearday.mp3"
+]
